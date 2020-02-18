@@ -16,7 +16,7 @@ var makePolitician = function(name){
 
 var jim = makePolitician('James Holden');
 var amos = makePolitician('Amos Burton');
-
+var winner = "";
 // console.log(jim);
 // console.log(amos);
 
@@ -39,3 +39,31 @@ amos.electionResults[43] = 27;
 console.log(jim.electionResults);
 console.log(amos.electionResults);
 
+jim.totalVotes = function() {
+  this.totalVotes = 0;
+  for (var i=0; i<this.electionResults.length; i++){
+    this.totalVotes = this.totalVotes + this.electionResults[i];
+  }
+  console.log("Jim Holden received " + this.totalVotes + " total votes.");
+}
+
+amos.totalVotes = function() {
+  this.totalVotes = 0;
+  for (var i=0; i<this.electionResults.length; i++){
+    this.totalVotes = this.totalVotes + this.electionResults[i];
+  }
+  console.log("Amos Burton recieved " + this.totalVotes + " total votes.")
+}
+
+console.log(jim.totalVotes());
+console.log(amos.totalVotes());
+
+if (jim.totalVotes > amos.totalVotes){
+  winner = jim.name;
+} else if (amos.totalVotes > jim.totalVotes){
+  winner = amos.name;
+} else {
+  winner = "Election is a tie!"
+}
+
+console.log("The winner of the election is: " + winner)
