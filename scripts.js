@@ -36,8 +36,26 @@ amos.electionResults[4] = 38;
 jim.electionResults[43] = 11;
 amos.electionResults[43] = 27;
 
-console.log(jim.electionResults);
-console.log(amos.electionResults);
+// console.log(jim.electionResults);
+// console.log(amos.electionResults);
+
+var setStateResults = function(state){
+  theStates[state].winner = null;
+  if (jim.electionResults[state] > amos.electionResults[state]){
+    theStates[state].winner = jim;
+  } else if (amos.electionResults[state] > jim.electionResults[state]){
+    theStates[state].winner = amos;
+  } 
+
+  var stateWinner = theStates[state].winner;
+  
+  if (stateWinner !== null) {
+    theStates[state].rgbColor = stateWinner.partyColor;
+  } else {
+    theStates[state].rgbColor = [11,32,57];
+  }
+}
+
 
 jim.totalVotes = function() {
   this.totalVotes = 0;
