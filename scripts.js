@@ -5,17 +5,17 @@
 // politician.electionResults = null;
 // politician.totalVotes = 0;
 
-var makePolitician = function(name){
+var makePolitician = function(name, partyColor){
   var politician = {};
   politician.name = name;
   politician.electionResults = null;
   politician.totalVotes = 0;
-
+  politician.partyColor = partyColor;
   return politician;
 }
 
-var jim = makePolitician('James Holden');
-var amos = makePolitician('Amos Burton');
+var jim = makePolitician('James Holden', [132, 17, 11]);
+var amos = makePolitician('Amos Burton', [245, 141, 136]);
 var winner = "";
 // console.log(jim);
 // console.log(amos);
